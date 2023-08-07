@@ -8,21 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Program.cs" />
+    <None Remove="poem.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Problem2.in.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Program.cs">
+    <EmbeddedResource Include="poem.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Problem2.in.txt" />
   </ItemGroup>
 
 </Project>
