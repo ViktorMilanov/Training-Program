@@ -12,6 +12,8 @@ class Program
 
         // Load the input data from the embedded resource file
         string input;
+        //use  using (var stream = System.IO.File.OpenRead(op.FileName))
+        //why assembly stuff?
         Assembly assembly = Assembly.GetExecutingAssembly();
         using (Stream stream = assembly.GetManifestResourceStream(resourceName))
         {
