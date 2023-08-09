@@ -4,6 +4,7 @@
     {
         public static void CalculateWordCounts(string wordsFilePath, string textFilePath, string outputFilePath)
         {
+            //what if the file is PodIgoto? Voina i mir? How much ram do I need for this one
             // Read the list of words from the words file
             List<string> words = File.ReadAllLines(wordsFilePath)
                                      .Select(word => word.ToLower())
@@ -20,6 +21,7 @@
                 wordCounts[word] = count;
             }
 
+            //priority queue
             // Sort words by frequency in descending order
             var sortedWordCounts = wordCounts.OrderByDescending(pair => pair.Value)
                                              .ThenBy(pair => pair.Key);
