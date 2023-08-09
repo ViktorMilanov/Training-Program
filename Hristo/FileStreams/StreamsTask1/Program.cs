@@ -14,6 +14,8 @@ public class MergeFiles
     }
     public static void MergeTextFiles(string firstInputFilePath, string secondInputFilePath, string outputFilePath)
     {
+
+        //exception handling
         string[] firstLines = File.ReadAllLines(firstInputFilePath);
         string[] secondLines = File.ReadAllLines(secondInputFilePath);
 
