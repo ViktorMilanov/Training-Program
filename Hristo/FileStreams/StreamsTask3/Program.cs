@@ -4,15 +4,12 @@
     {
         public static void CalculateWordCounts(string wordsFilePath, string textFilePath, string outputFilePath)
         {
-            // Read the list of words from the words file
             List<string> words = File.ReadAllLines(wordsFilePath)
                                      .Select(word => word.ToLower())
                                      .ToList();
 
-            // Read the text from the text file and convert to lowercase
             string text = File.ReadAllText(textFilePath).ToLower();
 
-            // Split the text into words and count their occurrences
             Dictionary<string, int> wordCounts = new Dictionary<string, int>();
             foreach (string word in words)
             {
@@ -20,11 +17,9 @@
                 wordCounts[word] = count;
             }
 
-            // Sort words by frequency in descending order
             var sortedWordCounts = wordCounts.OrderByDescending(pair => pair.Value)
                                              .ThenBy(pair => pair.Key);
 
-            // Write word counts to the output file
             using (StreamWriter writer = new StreamWriter(outputFilePath))
             {
                 foreach (var pair in sortedWordCounts)

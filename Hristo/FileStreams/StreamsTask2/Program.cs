@@ -1,31 +1,31 @@
-﻿using System;
-using System.IO;
-
-public class LineNumbers
+﻿namespace StreamsTask2
 {
-    static void Main()
+    public class LineNumbers
     {
-        string inputFilePath = @"./input.txt";
-        string outputFilePath = @"./output.txt";
-
-        RewriteFileWithLineNumbers(inputFilePath, outputFilePath);
-    }
-
-    public static void RewriteFileWithLineNumbers(string inputFilePath, string outputFilePath)
-    {
-        using (StreamReader reader = new(inputFilePath))
-        using (StreamWriter writer = new(outputFilePath))
+        static void Main()
         {
-            string line;
-            int lineNumber = 1;
+            string inputFilePath = @"./input.txt";
+            string outputFilePath = @"./output.txt";
 
-            while ((line = reader.ReadLine()) != null)
-            {
-                writer.WriteLine($"{lineNumber}: {line}");
-                lineNumber++;
-            }
+            RewriteFileWithLineNumbers(inputFilePath, outputFilePath);
         }
 
-        Console.WriteLine("File with line numbers written successfully.");
+        public static void RewriteFileWithLineNumbers(string inputFilePath, string outputFilePath)
+        {
+            using (StreamReader reader = new(inputFilePath))
+            using (StreamWriter writer = new(outputFilePath))
+            {
+                string line;
+                int lineNumber = 1;
+
+                while ((line = reader.ReadLine()) != null)
+                {
+                    writer.WriteLine($"{lineNumber}: {line}");
+                    lineNumber++;
+                }
+            }
+
+            Console.WriteLine("File with line numbers written successfully.");
+        }
     }
 }
