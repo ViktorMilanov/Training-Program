@@ -1,4 +1,6 @@
-﻿namespace VM.DataStructures
+﻿using System.Collections;
+
+namespace VM.DataStructures
 {
     public class Node<T>
     {
@@ -6,10 +8,27 @@
         public Node<T>? next;
         public Node<T>? prev;
     }
-    public class CustomLinkedList<T>
+    public class CustomLinkedList<T> : IEnumerator<T>
     {
         private Node<T>? front, rear;
         public int Count { get; private set; }
+
+        private Node<T>? currentNode;
+        public T Current
+        {
+            get
+            {
+                if (currentNode == null)
+                {
+                    throw new InvalidOperationException("Enumeration has not started.");
+                }
+
+                return currentNode.value!;
+            }
+        }
+
+        object IEnumerator.Current => Current;
+
         public CustomLinkedList()
         {
             front = rear = null;
@@ -238,6 +257,40 @@
             rear.prev.next = null;
             rear = rear.prev;
             Count--;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            currentNode = null;
+
+            while (MoveNext())
+            {
+                yield return currentNode!.value;
+            }
+
+            currentNode = null;
+        }
+
+        public bool MoveNext()
+        {
+            if (currentNode == null)
+            {
+                return false;
+            }
+
+            currentNode = currentNode.next;
+            return currentNode != null;
+        }
+
+        public void Reset()
+        {
+            currentNode = null;
+        }
+
+        public void Dispose()
+        {
+            // No additional cleanup needed in this case because i dont have any external
+            // resources that require cleanup like database data stored in my program
         }
     }
 }
