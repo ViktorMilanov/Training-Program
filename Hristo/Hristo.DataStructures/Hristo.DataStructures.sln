@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hristo.DataStructures", "Hristo.DataStructures\Hristo.DataStructures.csproj", "{373D7DE0-7B3D-4F1F-8603-27ED7C55B378}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hristo.UnitTests", "Hristo.UnitTests\Hristo.UnitTests.csproj", "{E9F97E59-662C-4C64-B00E-C251AEEB67EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{373D7DE0-7B3D-4F1F-8603-27ED7C55B378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{373D7DE0-7B3D-4F1F-8603-27ED7C55B378}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{373D7DE0-7B3D-4F1F-8603-27ED7C55B378}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{373D7DE0-7B3D-4F1F-8603-27ED7C55B378}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9F97E59-662C-4C64-B00E-C251AEEB67EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9F97E59-662C-4C64-B00E-C251AEEB67EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9F97E59-662C-4C64-B00E-C251AEEB67EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9F97E59-662C-4C64-B00E-C251AEEB67EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {01B11A6C-DAF9-4B19-BDAF-E33629EA8D99}
+	EndGlobalSection
+EndGlobal
