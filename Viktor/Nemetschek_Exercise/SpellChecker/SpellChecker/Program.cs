@@ -12,4 +12,9 @@ StreamReader textReader = new StreamReader(textFilePath);
 StreamWriter outputWriter = new StreamWriter(outputFilePath, true);
 
 ISpellChecker spellChecker = new NaiveSpellChecker(dictonaryReader, stopwordsReader);
-spellChecker.Analyze(textReader, outputWriter, suggestedWordsCount);    
+spellChecker.Analyze(textReader, outputWriter, suggestedWordsCount);
+
+dictonaryReader.Close();
+stopwordsReader.Close();
+textReader.Close();
+outputWriter.Close();
