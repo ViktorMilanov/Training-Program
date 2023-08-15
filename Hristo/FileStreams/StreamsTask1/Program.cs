@@ -4,33 +4,61 @@
     {
         public static void Main(string[] args)
         {
-            string firstInputFilePath = "./input1.txt";
-            string secondInputFilePath = "./input2.txt";
-            string outputFilePath = "./output.txt";
+            try
+            {
+                string firstInputFilePath = "./input1.txt";
+                string secondInputFilePath = "./input2.txt";
+                string outputFilePath = "./output.txt";
 
-            MergeTextFiles(firstInputFilePath, secondInputFilePath, outputFilePath);
-            Console.WriteLine("Files merged successfully.");
+                MergeTextFiles(firstInputFilePath, secondInputFilePath, outputFilePath);
+                Console.WriteLine("Files merged successfully.");
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine("One or both input files not found: " + ex.Message);
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine("An IO error occurred: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An unexpected error occurred: " + ex.Message);
+            }
         }
+
         public static void MergeTextFiles(string firstInputFilePath, string secondInputFilePath, string outputFilePath)
         {
-            string[] firstLines = File.ReadAllLines(firstInputFilePath);
-            string[] secondLines = File.ReadAllLines(secondInputFilePath);
-
-            int maxLength = Math.Max(firstLines.Length, secondLines.Length);
-
-            using (StreamWriter writer = new StreamWriter(outputFilePath))
+            try
             {
-                for (int i = 0; i < maxLength; i++)
+                using (StreamReader firstReader = new StreamReader(firstInputFilePath))
+                using (StreamReader secondReader = new StreamReader(secondInputFilePath))
+                using (StreamWriter writer = new StreamWriter(outputFilePath))
                 {
-                    if (i < firstLines.Length)
+                    string firstLine, secondLine;
+
+                    while ((firstLine = firstReader.ReadLine()) != null)
                     {
-                        writer.WriteLine(firstLines[i]);
+                        writer.WriteLine(firstLine);
                     }
-                    if (i < secondLines.Length)
+
+                    while ((secondLine = secondReader.ReadLine()) != null)
                     {
-                        writer.WriteLine(secondLines[i]);
+                        writer.WriteLine(secondLine);
                     }
                 }
+            }
+            catch (FileNotFoundException ex)
+            {
+                throw new FileNotFoundException("One or both input files not found.", ex);
+            }
+            catch (IOException ex)
+            {
+                throw new IOException("An IO error occurred while merging files.", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An unexpected error occurred while merging files.", ex);
             }
         }
     }

@@ -1,6 +1,8 @@
-﻿namespace Hristo.DataStructures
+﻿using System.Collections;
+
+namespace Hristo.DataStructures
 {
-    public class MyLinkedList<T>
+    public class MyLinkedList<T> : IEnumerable<T>
     {
         private Node<T>? head;
         private Node<T>? tail;
@@ -36,14 +38,13 @@
                 {
                     return true;
                 }
-
                 currentNode = currentNode.Next;
             }
 
             return false;
         }
 
-        public Node<T> Find(T value)
+        public Node<T>? Find(T value)
         {
             var currentNode = head;
 
@@ -60,10 +61,26 @@
             return null;
         }
 
+        public IEnumerator<T> GetEnumerator()
+        {
+            var currentNode = head;
+
+            while (currentNode != null)
+            {
+                yield return currentNode.Value;
+                currentNode = currentNode.Next;
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
         public class Node<T>
         {
             public T Value { get; }
-            public Node<T> Next { get; set; }
+            public Node<T>? Next { get; set; }
 
             public Node(T value)
             {
@@ -72,5 +89,4 @@
             }
         }
     }
-
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-
-class Program
+﻿class Program
 {
     static void Main()
     {
@@ -12,8 +7,7 @@ class Program
 
         // Load the input data from the embedded resource file
         string input;
-        Assembly assembly = Assembly.GetExecutingAssembly();
-        using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+        using (var stream = File.OpenRead(resourceName))
         {
             if (stream == null)
             {

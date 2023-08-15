@@ -10,7 +10,7 @@
 
             string text = File.ReadAllText(textFilePath).ToLower();
 
-            Dictionary<string, int> wordCounts = new Dictionary<string, int>();
+            Dictionary<string, int> wordCounts = new();
             foreach (string word in words)
             {
                 int count = CountWordOccurrences(text, word);

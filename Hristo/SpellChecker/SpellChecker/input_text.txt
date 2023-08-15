@@ -1,0 +1,5 @@
+This is an example text containing some spelling misstakes.
+
+The implementaion of this spell checker should work naivly.
+
+It's just an illustraton of how spell checking can be done.
