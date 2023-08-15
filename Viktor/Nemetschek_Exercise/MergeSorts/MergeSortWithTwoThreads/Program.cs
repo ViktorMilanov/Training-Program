@@ -1,8 +1,6 @@
 ﻿int[] arr = { 8, 4, 2, 6, 10, 1, 3, 5, 7, 9 };
-
-Thread t = new Thread(() => MergeSort(arr, 0, arr.Length - 1));
-t.Start();
-t.Join();
+Task t = Task.Run(() => MergeSort(arr, 0, arr.Length - 1));
+t.Wait();
 
 foreach (var num in arr)
 {
@@ -15,14 +13,10 @@ static void MergeSort(int[] arr, int left, int right)
     {
         int mid = (left + right) / 2;
 
-        Thread leftThread = new Thread(() => MergeSort(arr, left, mid));
-        Thread rightThread = new Thread(() => MergeSort(arr, mid + 1, right));
+        Task leftTask = Task.Run(() => MergeSort(arr, left, mid));
+        Task rightTask = Task.Run(() => MergeSort(arr, mid + 1, right));
 
-        leftThread.Start();
-        rightThread.Start();
-
-        leftThread.Join();
-        rightThread.Join();
+        Task.WaitAll(leftTask, rightTask);
 
         Merge(arr, left, mid, right);
     }

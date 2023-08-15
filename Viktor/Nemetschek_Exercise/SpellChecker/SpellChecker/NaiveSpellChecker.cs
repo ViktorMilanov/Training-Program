@@ -23,11 +23,11 @@ namespace SpellChecker
             dictionary = new HashSet<string>();
             stopwords = new HashSet<string>();
 
-            FillTheHashSet(dictionaryReader, dictionary);
-            FillTheHashSet(stopwordsReader, stopwords);
+            Fill(dictionaryReader, dictionary);
+            Fill(stopwordsReader, stopwords);
         }
 
-        private void FillTheHashSet(StreamReader dictionaryReader, HashSet<string> dictionary)
+        private void Fill(StreamReader dictionaryReader, HashSet<string> dictionary)
         {
             using (dictionaryReader)
             {
@@ -43,7 +43,7 @@ namespace SpellChecker
         {
             string text = ReadingTextFormReader(textReader);
             string[] textByLines = text.Split("\r\n", StringSplitOptions.RemoveEmptyEntries);
-            var metadata = Metadata(textByLines);
+            var metadata = GetMetadata(textByLines);
             Dictionary<string, IList<string>> suggestedWords = new Dictionary<string, IList<string>>();
             foreach (var mistakenWord in metadata.mistakenWords.Keys)
             {
@@ -72,8 +72,7 @@ namespace SpellChecker
         public IList<string> FindClosestWords(string word, int n)
         {
             Dictionary<string, double> mostSimilarSuggestedWord = new Dictionary<string, double>();
-            Dictionary<string, int> mispelenWordVector = new Dictionary<string, int>();
-            mispelenWordVector = FindVectorOfWord(word);
+            var mispelenWordVector = FindVectorOfWord(word);
             double lenghtOfMispelenWordVector = FindLenghtOfVector(mispelenWordVector);
             foreach (var suggest in dictionary)
             {
@@ -103,8 +102,7 @@ namespace SpellChecker
 
         private double FindSimirarity(string suggest, double lenghtOfMispelenWordVector, Dictionary<string, int> mispelenWordVector)
         {
-            Dictionary<string, int> suggestWordVector = new Dictionary<string, int>();
-            suggestWordVector = FindVectorOfWord(suggest);
+            var suggestWordVector = FindVectorOfWord(suggest);
             double lenghtOfSuggestedWordVector = FindLenghtOfVector(mispelenWordVector);
             var commonKeys = mispelenWordVector.Keys.Intersect(suggestWordVector.Keys);
             double vectorProduct = 0;
@@ -141,7 +139,7 @@ namespace SpellChecker
             return vectorDictionary;
         }
 
-        public Metadata Metadata(string[] textByLines)
+        public Metadata GetMetadata(string[] textByLines)
         {
             int wordCount = 0, charactersCount = 0;
             Dictionary<string, int> mistakenWords = new Dictionary<string, int>();
@@ -170,17 +168,17 @@ namespace SpellChecker
 
         private string ReadingTextFormReader(StreamReader textReader)
         {
-            string text = "";
+            StringBuilder textBuilder = new StringBuilder();
             string line;
             while ((line = textReader.ReadLine()) != null)
             {
-                text += line.ToLower() + Environment.NewLine;
+                textBuilder.AppendLine(line.ToLower());
             }
 
             textReader.BaseStream.Seek(0, SeekOrigin.Begin);
             textReader.DiscardBufferedData();
 
-            return text;
+            return textBuilder.ToString();
         }
 
         static bool IsOnlyNonAlphabetic(string input)
