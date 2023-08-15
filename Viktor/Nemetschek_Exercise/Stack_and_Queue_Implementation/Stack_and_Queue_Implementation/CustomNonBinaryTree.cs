@@ -16,13 +16,9 @@ namespace VM.DataStructures
             Value = v;
         }
     }
-    public class TreeNode<T> : Leaf<T>, IEnumerator<T>
+    public class TreeNode<T> : Leaf<T>
     {
         private List<Leaf<T>> children;
-
-        public T Current => throw new NotImplementedException();
-
-        object IEnumerator.Current => throw new NotImplementedException();
 
         public TreeNode(T value) : base(value)
         {
@@ -79,21 +75,6 @@ namespace VM.DataStructures
             }
 
             return null;
-        }
-
-        public bool MoveNext()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Reset()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
         }
     }
 }

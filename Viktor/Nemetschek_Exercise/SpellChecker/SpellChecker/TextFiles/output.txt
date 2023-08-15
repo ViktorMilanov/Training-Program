@@ -1,0 +1,12 @@
+spelling chek tool
+one of the most usefull tools we use when communicating online is the so-called speling checker (tool for checking the spelling).
+how do spelling checkers work?
+at their core, they rely on an algorith that finds closeness between words - specifically, 
+the closeness of a mistaken word to all words from our dictionary, and considers as most correct the one that is closest.
+= = = Metadata = = =
+225 characters, 34 words, 4 spelling issue(s) found
+= = = Findings = = =
+Line #1, chek - Possible suggestions are {cherry-cheeked, chechehet, chichevache}
+Line #2, usefull - Possible suggestions are {abusefully, excusefully, full-to-full}
+Line #2, speling - Possible suggestions are {pain-dispelling, spear-splintering, care-dispelling}
+Line #4, algorith - Possible suggestions are {algorithmically, algorithm, algorithmic}

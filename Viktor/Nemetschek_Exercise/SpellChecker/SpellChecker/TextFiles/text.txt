@@ -1,0 +1,5 @@
+﻿Spelling Chek Tool
+One of the most usefull tools we use when communicating online is the so-called speling checker (tool for checking the spelling).
+How do spelling checkers work?
+At their core, they rely on an algorith that finds closeness between words - specifically, 
+the closeness of a mistaken word to all words from our dictionary, and considers as most correct the one that is closest.
