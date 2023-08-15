@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchSort", "MerchSort\MerchSort.csproj", "{8F236529-E301-42EE-B96C-E64F5803DCEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchSort2Threads", "MerchSort2Threads\MerchSort2Threads.csproj", "{F0281F73-4BB4-49C3-AF54-EF53DB43ADB9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F236529-E301-42EE-B96C-E64F5803DCEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F236529-E301-42EE-B96C-E64F5803DCEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F236529-E301-42EE-B96C-E64F5803DCEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F236529-E301-42EE-B96C-E64F5803DCEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0281F73-4BB4-49C3-AF54-EF53DB43ADB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0281F73-4BB4-49C3-AF54-EF53DB43ADB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0281F73-4BB4-49C3-AF54-EF53DB43ADB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0281F73-4BB4-49C3-AF54-EF53DB43ADB9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E0AB019C-D5A7-472E-9E86-40E8131CECF5}
+	EndGlobalSection
+EndGlobal
