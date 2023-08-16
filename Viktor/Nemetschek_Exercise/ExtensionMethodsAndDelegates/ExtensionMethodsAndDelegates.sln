@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SortMethodWithExtensionMethods", "SortMethodWithExtensionMethods\SortMethodWithExtensionMethods.csproj", "{1BFEA9C6-C70B-4BD6-A049-E5EE003254C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatRoom", "ChatRoom\ChatRoom.csproj", "{EEA84951-C5FF-4F75-8FBA-9B930A1EBAFD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1BFEA9C6-C70B-4BD6-A049-E5EE003254C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BFEA9C6-C70B-4BD6-A049-E5EE003254C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BFEA9C6-C70B-4BD6-A049-E5EE003254C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BFEA9C6-C70B-4BD6-A049-E5EE003254C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEA84951-C5FF-4F75-8FBA-9B930A1EBAFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEA84951-C5FF-4F75-8FBA-9B930A1EBAFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEA84951-C5FF-4F75-8FBA-9B930A1EBAFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEA84951-C5FF-4F75-8FBA-9B930A1EBAFD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2303325A-50AF-434D-8B7E-562FDB9F02B3}
+	EndGlobalSection
+EndGlobal

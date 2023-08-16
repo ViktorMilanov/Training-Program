@@ -25,7 +25,7 @@ namespace SpellChecker
          * @param textReader a stream containing some text
          * @return Metadata for the given text
          */
-        Metadata Metadata(string[] textByLines);
+        Metadata GetMetadata(string[] textByLines);
 
         /**
          * Returns {@code n} closest words to {@code word}, sorted in descending order. 
