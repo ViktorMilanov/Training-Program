@@ -17,7 +17,7 @@ namespace ChatRoom
 
         public void JoinChatRoom(ChatRoomClass room)
         {
-            room.MessageSend += this.OnMessageReceived;
+            room.SendMessage += this.OnMessageReceived;
         }
 
         public void SendMessage(ChatRoomClass room, string content)

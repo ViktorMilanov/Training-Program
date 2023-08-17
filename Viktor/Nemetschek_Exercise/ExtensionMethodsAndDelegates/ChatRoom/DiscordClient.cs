@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ChatRoom
+﻿namespace ChatRoom
 {
     public class DiscordClient
     {
@@ -25,7 +19,7 @@ namespace ChatRoom
 
         public void JoinChatRoom(ChatRoomClass room)
         {
-            room.MessageSend += this.OnMessageReceived;
+            room.SendMessage += OnMessageReceived;
         }
 
         public void SendMessage(ChatRoomClass room, string content)
