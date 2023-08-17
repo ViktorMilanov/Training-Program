@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <AssemblyName>Hristo.DataStructures</AssemblyName>
     <RootNamespace>Hristo.DataStructures</RootNamespace>
+    <OutputType>Exe</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
