@@ -16,7 +16,7 @@ foreach (var dllPath in Directory.GetFiles(pluginsDirectory, "*dll"))
     {
         if(typeof(IPlugin).IsAssignableFrom(type) && !type.IsInterface && !type.IsAbstract)
         {
-            IPlugin plugin = (IPlugin)Activator.CreateInstance(type);
+            var plugin = (IPlugin)Activator.CreateInstance(type);
             plugins.Add(plugin);
         }
     }
