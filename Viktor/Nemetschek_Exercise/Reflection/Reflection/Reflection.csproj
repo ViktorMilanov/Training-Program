@@ -8,11 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DynamicExtensionsPlugin\DynamicExtensionsPlugin.csproj" />
-    <ProjectReference Include="..\FeatureEnrichmentPlugin\FeatureEnrichmentPlugin.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="Interfaces">
       <HintPath>..\DataContracts\Interfaces.dll</HintPath>
     </Reference>
