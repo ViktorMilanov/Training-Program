@@ -1,26 +1,25 @@
-﻿using Reflection.DataContracts;
+﻿using DynamicExtensionsPlugin.Implementations;
+using Reflection.DataContracts;
 
-namespace FeatureEnrichmentPlugin.Implementations
+namespace DynamicExtensionsPlugin
 {
-    public class FeatureEnrichmentPlugin : IPlugin
+    public class DynamicExtensionsPlugin : IPlugin
     {
         private AboutInfo aboutInfo;
         private MainWindow mainWindow;
-
-        public FeatureEnrichmentPlugin()
+        public DynamicExtensionsPlugin()
         {
             Console.WriteLine("Constructor of FeatureEnrichmentPlugin is called.");
             aboutInfo = new AboutInfo
             {
-                Name = "Feature Enrichment Plugin",
-                About = "This plugin is the first plugin from my plugins. It does magic things.",
+                Name = "Dynamic Extensions Plugin",
+                About = "This plugin is the second plugin from my plugins. It does even more magic things.",
                 Credits = "Viktor Milanov",
                 Version = "1.0",
                 BuildNumber = "12345"
             };
             mainWindow = new MainWindow();
         }
-
         public AboutInfo GetAbout()
         {
             return aboutInfo;
@@ -38,7 +37,7 @@ namespace FeatureEnrichmentPlugin.Implementations
 
         public void Init()
         {
-            Console.WriteLine("First plugin is initializing.");
+            Console.WriteLine("Second plugin is initializing.");
             mainWindow.Init();
         }
     }

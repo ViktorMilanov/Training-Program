@@ -1,6 +1,6 @@
 ﻿using Reflection.DataContracts;
 
-namespace FeatureEnrichmentPlugin.Implementations
+namespace DynamicExtensionsPlugin.Implementations
 {
     public class MainWindow : IMainWindow
     {
@@ -10,7 +10,7 @@ namespace FeatureEnrichmentPlugin.Implementations
 
         public MainWindow()
         {
-            
+
         }
         public List<Tool> GetLeftBar()
         {
@@ -35,7 +35,7 @@ namespace FeatureEnrichmentPlugin.Implementations
                 new NavigationItem { Name = "Profile", Description = "Navigate to Profile", NavigationPath = "/profile" }
             };
 
-            
+
 
             ui = new UI();
 
@@ -44,7 +44,7 @@ namespace FeatureEnrichmentPlugin.Implementations
 
         public void Open()
         {
-            Console.WriteLine("MainWindow of the first plugin is now open.");
+            Console.WriteLine("MainWindow of the second plugin is now open.");
         }
     }
 }

@@ -7,4 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Interfaces">
+      <HintPath>..\..\..\..\..\..\..\Downloads\Interfaces.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
