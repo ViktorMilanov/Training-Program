@@ -21,7 +21,7 @@ namespace ConsoleApp
             IPlugin chosenPlugin = plugins[chosenPluginIndex];
 
             chosenPlugin.Init();
-            IMainWindow mainWindow = chosenPlugin.GetMainWindow();
+            IMainWindow mainWindow = chosenPlugin.GetMainWindow(); 
             _ = mainWindow.GetTopNavigation();
             _ = mainWindow.GetLeftBar();
         }

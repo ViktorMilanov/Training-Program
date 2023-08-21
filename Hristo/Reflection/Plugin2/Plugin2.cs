@@ -6,7 +6,7 @@ namespace PluginTwo
     {
         public void Init()
         {
-            Console.WriteLine("Plugin Two initialized.");
+            Console.WriteLine(this.GetAbout().Name+" initialized.");
         }
 
         public AboutInfo GetAbout()
@@ -28,7 +28,7 @@ namespace PluginTwo
 
         public string GetPluginName()
         {
-            return "Plugin Two";
+            return this.GetAbout().Name;
         }
     }
 
