@@ -14,10 +14,9 @@ foreach (var dllPath in Directory.GetFiles(pluginsDirectory, "*dll"))
     Assembly assembly = Assembly.LoadFrom(dllPath);
     foreach (var type in assembly.GetTypes())
     {
-        if(typeof(IPlugin).IsAssignableFrom(type) && !type.IsInterface)
+        if(typeof(IPlugin).IsAssignableFrom(type) && !type.IsInterface && !type.IsAbstract)
         {
-            string typeToString = type.ToString();
-            IPlugin plugin = (IPlugin)Activator.CreateInstance(type);
+            var plugin = (IPlugin)Activator.CreateInstance(type);
             plugins.Add(plugin);
         }
     }

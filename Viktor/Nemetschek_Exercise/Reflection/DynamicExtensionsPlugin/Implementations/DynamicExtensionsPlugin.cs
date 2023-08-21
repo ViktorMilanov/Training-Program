@@ -18,7 +18,6 @@ namespace DynamicExtensionsPlugin
                 Version = "1.0",
                 BuildNumber = "12345"
             };
-            mainWindow = new MainWindow();
         }
         public AboutInfo GetAbout()
         {
@@ -38,6 +37,7 @@ namespace DynamicExtensionsPlugin
         public void Init()
         {
             Console.WriteLine("First plugin is initializing.");
+            mainWindow = new MainWindow();
             mainWindow.Init();
         }
     }
