@@ -13,7 +13,7 @@ namespace DynamicExtensionsPlugin
             aboutInfo = new AboutInfo
             {
                 Name = "Dynamic Extensions Plugin",
-                About = "This plugin is the second plugin from my plugins. It does even more magic things.",
+                About = "This plugin is the first plugin from my plugins. It does even more magic things.",
                 Credits = "Viktor Milanov",
                 Version = "1.0",
                 BuildNumber = "12345"
@@ -37,7 +37,7 @@ namespace DynamicExtensionsPlugin
 
         public void Init()
         {
-            Console.WriteLine("Second plugin is initializing.");
+            Console.WriteLine("First plugin is initializing.");
             mainWindow.Init();
         }
     }

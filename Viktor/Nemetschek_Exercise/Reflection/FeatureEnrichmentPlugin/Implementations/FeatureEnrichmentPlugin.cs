@@ -13,7 +13,7 @@ namespace FeatureEnrichmentPlugin.Implementations
             aboutInfo = new AboutInfo
             {
                 Name = "Feature Enrichment Plugin",
-                About = "This plugin is the first plugin from my plugins. It does magic things.",
+                About = "This plugin is the second plugin from my plugins. It does magic things.",
                 Credits = "Viktor Milanov",
                 Version = "1.0",
                 BuildNumber = "12345"
@@ -38,7 +38,7 @@ namespace FeatureEnrichmentPlugin.Implementations
 
         public void Init()
         {
-            Console.WriteLine("First plugin is initializing.");
+            Console.WriteLine("Second plugin is initializing.");
             mainWindow.Init();
         }
     }

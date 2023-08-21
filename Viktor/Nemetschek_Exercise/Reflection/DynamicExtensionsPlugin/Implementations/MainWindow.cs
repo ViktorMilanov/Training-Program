@@ -44,7 +44,7 @@ namespace DynamicExtensionsPlugin.Implementations
 
         public void Open()
         {
-            Console.WriteLine("MainWindow of the second plugin is now open.");
+            Console.WriteLine("MainWindow of the first plugin is now open.");
         }
     }
 }

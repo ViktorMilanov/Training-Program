@@ -7,6 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Reference Include="Interfaces">
+      <HintPath>..\DataContracts\Interfaces.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
