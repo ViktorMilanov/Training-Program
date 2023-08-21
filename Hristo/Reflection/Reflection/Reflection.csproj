@@ -7,10 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Plugin1\Plugin1.csproj" />
-    <ProjectReference Include="..\Plugin2\Plugin2.csproj" />
-    <ProjectReference Include="..\PluginInterfaces\PluginInterfaces.csproj" />
-  </ItemGroup>
-
+	<ItemGroup>
+		<Reference Include="Interfaces">
+			<HintPath>..\References\Interfaces.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+	
 </Project>

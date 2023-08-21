@@ -1,6 +1,4 @@
-﻿using Reflection.DataContracts;
-
-namespace PluginTwo
+﻿namespace Reflection.DataContracts
 {
     public class PluginTwo : IPlugin
     {
