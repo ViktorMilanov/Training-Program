@@ -1,5 +1,6 @@
 ﻿using DynamicExtensionsPlugin.Implementations;
 using Reflection.DataContracts;
+using System;
 
 namespace DynamicExtensionsPlugin
 {
@@ -9,7 +10,6 @@ namespace DynamicExtensionsPlugin
         private MainWindow mainWindow;
         public DynamicExtensionsPlugin()
         {
-            Console.WriteLine("Constructor of FeatureEnrichmentPlugin is called.");
             aboutInfo = new AboutInfo
             {
                 Name = "Dynamic Extensions Plugin",
