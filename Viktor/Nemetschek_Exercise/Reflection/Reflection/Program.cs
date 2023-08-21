@@ -37,6 +37,7 @@ if (selectedPluginIndex >= 0 && selectedPluginIndex < plugins.Count)
     AboutInfo aboutInfo = selectedPlugin.GetAbout();
     Console.WriteLine($"Plugin Name: {selectedPlugin.GetPluginName()}");
     Console.WriteLine($"Plugin Version: {aboutInfo.Version}");
+
 }
 else
 {

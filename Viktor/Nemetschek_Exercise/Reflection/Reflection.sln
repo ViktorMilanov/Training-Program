@@ -3,11 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reflection", "Reflection\Reflection.csproj", "{71F9354E-2DAE-4869-88E2-BD2174B0EBA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reflection", "Reflection\Reflection.csproj", "{71F9354E-2DAE-4869-88E2-BD2174B0EBA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureEnrichmentPlugin", "FeatureEnrichmentPlugin\FeatureEnrichmentPlugin.csproj", "{E2CAC36E-2B92-4D9E-AE8A-721F16F672B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeatureEnrichmentPlugin", "FeatureEnrichmentPlugin\FeatureEnrichmentPlugin.csproj", "{E2CAC36E-2B92-4D9E-AE8A-721F16F672B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicExtensionsPlugin", "DynamicExtensionsPlugin\DynamicExtensionsPlugin.csproj", "{E755444F-8855-4749-81CA-F6FE8579EBD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicExtensionsPlugin", "DynamicExtensionsPlugin\DynamicExtensionsPlugin.csproj", "{E755444F-8855-4749-81CA-F6FE8579EBD0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataContracts", "DataContracts", "{206FE85A-CF7D-4AD4-884A-D65345F2AA20}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\..\..\Downloads\Interfaces.dll = ..\..\..\..\..\..\Downloads\Interfaces.dll
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
