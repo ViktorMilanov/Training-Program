@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -8,7 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PluginInterfaces\PluginInterfaces.csproj" />
+    <Reference Include="Interfaces">
+      <HintPath>..\References\Interfaces.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

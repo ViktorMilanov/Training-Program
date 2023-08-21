@@ -5,48 +5,61 @@ namespace ConsoleApp
 {
     class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            string pluginsFolder = "Plugins";
-            List<IPlugin> plugins = LoadPlugins(pluginsFolder);
+            Console.WriteLine("Loading plugins...");
 
-            Console.WriteLine($"Found {plugins.Count} plugins:");
-            for (int i = 0; i < plugins.Count; i++)
+            string pluginsDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plugins");
+            if (Directory.Exists(pluginsDirectory))
             {
-                Console.WriteLine($"{i + 1}. {plugins[i].GetPluginName()} - {plugins[i].GetAbout().Version}");
-            }
+                string[] pluginFiles = Directory.GetFiles(pluginsDirectory, "*.dll");
 
-            Console.Write("Choose plugin (number): ");
-            int chosenPluginIndex = int.Parse(Console.ReadLine()) - 1;
-            IPlugin chosenPlugin = plugins[chosenPluginIndex];
+                List<IPlugin> loadedPlugins = new();
 
-            chosenPlugin.Init();
-            IMainWindow mainWindow = chosenPlugin.GetMainWindow(); 
-            _ = mainWindow.GetTopNavigation();
-            _ = mainWindow.GetLeftBar();
-        }
-
-        static List<IPlugin> LoadPlugins(string folderPath)
-        {
-            List<IPlugin> plugins = new();
-            string[] pluginFiles = Directory.GetFiles(folderPath, "*.dll");
-
-            foreach (string pluginFile in pluginFiles)
-            {
-                Assembly assembly = Assembly.LoadFrom(pluginFile);
-                Type[] types = assembly.GetTypes();
-
-                foreach (Type type in types)
+                foreach (string pluginFile in pluginFiles)
                 {
-                    if (typeof(IPlugin).IsAssignableFrom(type))
+                    Assembly pluginAssembly = Assembly.LoadFrom(pluginFile);
+                    Type[] types = pluginAssembly.GetTypes();
+
+                    foreach (Type type in types)
                     {
-                        IPlugin plugin = Activator.CreateInstance(type) as IPlugin;
-                        plugins.Add(plugin);
+                        if (typeof(IPlugin).IsAssignableFrom(type))
+                        {
+                            IPlugin plugin = (IPlugin)Activator.CreateInstance(type);
+                            loadedPlugins.Add(plugin);
+                            Console.WriteLine($"Loaded plugin: {plugin.GetPluginName()}");
+                        }
                     }
                 }
+
+                Console.WriteLine("Select a plugin to get information about:");
+                for (int i = 0; i < loadedPlugins.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1}. {loadedPlugins[i].GetPluginName()}");
+                }
+
+                int choice;
+                if (int.TryParse(Console.ReadLine(), out choice) && choice >= 1 && choice <= loadedPlugins.Count)
+                {
+                    IPlugin selectedPlugin = loadedPlugins[choice - 1];
+
+                    Console.WriteLine($"About {selectedPlugin.GetPluginName()}:");
+                    AboutInfo about = selectedPlugin.GetAbout();
+                    Console.WriteLine($"About: {about.Name}, Version: {about.Version}");
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.WriteLine("Invalid choice.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No plugins found in the Plugins directory.");
             }
 
-            return plugins;
+            Console.WriteLine("Press any key to exit.");
+            Console.ReadKey();
         }
     }
 }
