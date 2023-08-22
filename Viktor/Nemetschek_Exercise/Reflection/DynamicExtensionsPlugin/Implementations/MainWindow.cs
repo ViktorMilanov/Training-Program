@@ -1,4 +1,6 @@
 ﻿using Reflection.DataContracts;
+using System;
+using System.Collections.Generic;
 
 namespace DynamicExtensionsPlugin.Implementations
 {
@@ -45,6 +47,16 @@ namespace DynamicExtensionsPlugin.Implementations
         public void Open()
         {
             Console.WriteLine("MainWindow of the first plugin is now open.");
+        }
+
+        List<Tool> IMainWindow.GetLeftBar()
+        {
+            throw new NotImplementedException();
+        }
+
+        List<INavigation> IMainWindow.GetTopNavigation()
+        {
+            throw new NotImplementedException();
         }
     }
 }

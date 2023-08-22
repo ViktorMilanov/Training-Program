@@ -9,7 +9,7 @@ string pluginsDirectory = @"..\..\..\Plugins";
 
 
 
-foreach (var dllPath in Directory.GetFiles(pluginsDirectory, "*dll"))
+foreach (var dllPath in Directory.GetFiles(pluginsDirectory, "*dll", SearchOption.AllDirectories))
 {
     Assembly assembly = Assembly.LoadFrom(dllPath);
     foreach (var type in assembly.GetTypes())

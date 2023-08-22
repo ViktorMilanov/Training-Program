@@ -1,4 +1,5 @@
 ﻿using Reflection.DataContracts;
+using System;
 
 namespace FeatureEnrichmentPlugin.Implementations
 {
@@ -9,7 +10,6 @@ namespace FeatureEnrichmentPlugin.Implementations
 
         public FeatureEnrichmentPlugin()
         {
-            Console.WriteLine("Constructor of FeatureEnrichmentPlugin is called.");
             aboutInfo = new AboutInfo
             {
                 Name = "Feature Enrichment Plugin",
