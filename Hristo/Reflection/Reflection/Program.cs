@@ -47,6 +47,13 @@ namespace ConsoleApp
                     AboutInfo about = selectedPlugin.GetAbout();
                     Console.WriteLine($"About: {about.Name}, Version: {about.Version}");
                     Console.WriteLine();
+
+                    Type selectedType = selectedPlugin.GetType();
+                    MethodInfo[] methods = selectedType.GetMethods();
+                    foreach (MethodInfo method in methods)
+                    {
+                        Console.WriteLine($"Method: {method.Name}, Type: {method.ReturnType}");
+                    }
                 }
                 else
                 {
