@@ -1,6 +1,5 @@
 ﻿using DynamicExtensionsPlugin.Implementations;
 using Reflection.DataContracts;
-using System;
 
 namespace DynamicExtensionsPlugin
 {

@@ -7,11 +7,6 @@ namespace FeatureEnrichmentPlugin.Implementations
         private List<INavigation> topNavigation;
         private ITools leftBar;
         private IUI ui;
-
-        public MainWindow()
-        {
-            
-        }
         public List<Tool> GetLeftBar()
         {
             return leftBar.GetTools();
