@@ -1,6 +1,4 @@
 ﻿using Reflection.DataContracts;
-using System;
-using System.Collections.Generic;
 
 namespace DynamicExtensionsPlugin.Implementations
 {
@@ -9,21 +7,6 @@ namespace DynamicExtensionsPlugin.Implementations
         private List<INavigation> topNavigation;
         private ITools leftBar;
         private IUI ui;
-
-        public MainWindow()
-        {
-
-        }
-        public List<Tool> GetLeftBar()
-        {
-            return leftBar.GetTools();
-        }
-
-        public List<INavigation> GetTopNavigation()
-        {
-            return topNavigation;
-        }
-
         public IUI GetUI()
         {
             return ui;
@@ -51,12 +34,12 @@ namespace DynamicExtensionsPlugin.Implementations
 
         List<Tool> IMainWindow.GetLeftBar()
         {
-            throw new NotImplementedException();
+            return leftBar.GetTools();
         }
 
         List<INavigation> IMainWindow.GetTopNavigation()
         {
-            throw new NotImplementedException();
+            return topNavigation;
         }
     }
 }

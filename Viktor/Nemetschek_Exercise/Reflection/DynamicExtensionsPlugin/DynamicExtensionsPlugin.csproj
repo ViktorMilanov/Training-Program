@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
-    <BaseOutputPath>C:\Users\Viktor Milanov\Documents\GitHub\Training-Program\Viktor\Nemetschek_Exercise\Reflection\Reflection\Plugins\</BaseOutputPath>
+    <BaseOutputPath></BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,5 +13,9 @@
       <HintPath>..\DataContracts\Interfaces.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /Y &quot;$(TargetDir)$(TargetFileName)&quot; &quot;$(SolutionDir)Reflection\Plugins\&quot;" />
+  </Target>
 
 </Project>

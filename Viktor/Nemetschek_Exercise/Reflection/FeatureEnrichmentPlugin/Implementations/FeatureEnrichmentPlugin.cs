@@ -1,5 +1,4 @@
 ﻿using Reflection.DataContracts;
-using System;
 
 namespace FeatureEnrichmentPlugin.Implementations
 {

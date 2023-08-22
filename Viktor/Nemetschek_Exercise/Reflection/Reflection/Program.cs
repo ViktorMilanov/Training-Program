@@ -1,9 +1,6 @@
-﻿using System;
-using System.IO;
-using System.Reflection;
-using System.Collections.Generic;
+﻿using System.Reflection;
 using Reflection.DataContracts;
-    
+
 List<IPlugin> plugins = new List<IPlugin>();
 string pluginsDirectory = @"..\..\..\Plugins";
 
@@ -37,6 +34,16 @@ if (selectedPluginIndex >= 0 && selectedPluginIndex < plugins.Count)
     AboutInfo aboutInfo = selectedPlugin.GetAbout();
     Console.WriteLine($"Plugin Name: {selectedPlugin.GetPluginName()}");
     Console.WriteLine($"Plugin Version: {aboutInfo.Version}");
+
+    Console.WriteLine("\nPlugin Methods:");
+    Type pluginType = selectedPlugin.GetType();
+    MethodInfo[] methods = pluginType.GetMethods();
+
+    foreach (MethodInfo method in methods)
+    {
+        Console.WriteLine($"Method Name: {method.Name}");
+        Console.WriteLine($"Return Type: {method.ReturnType}");
+    }
 
 }
 else
