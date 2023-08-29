@@ -29,7 +29,14 @@ while (selectedPluginIndex != plugins.Count)
     Console.WriteLine("Loaded plugins:");
     for (int i = 0; i < plugins.Count; i++)
     {
-        Console.WriteLine($"{i + 1}. {plugins[i].GetPluginName()}");
+        if (plugins[i].GetAbout() == null)
+        {
+            Console.WriteLine($"{i + 1}. {plugins[i]}");
+        }
+        else
+        {
+            Console.WriteLine($"{i + 1}. {plugins[i].GetPluginName()}");
+        }
     }
     Console.WriteLine($"{plugins.Count + 1}. Exit");
     Console.Write("Choose a plugin by entering its number: ");
