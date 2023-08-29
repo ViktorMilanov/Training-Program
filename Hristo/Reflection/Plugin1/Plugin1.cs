@@ -31,10 +31,6 @@ namespace Plugin1
         {
             Console.WriteLine($"{Name} initialized.");
 
-
-        }
-
-        public void Show() {
         }
 
         public AboutInfo GetAbout()

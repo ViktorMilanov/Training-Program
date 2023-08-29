@@ -7,6 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
 	<ItemGroup>
 		<Reference Include="Interfaces">
 			<HintPath>..\References\Interfaces.dll</HintPath>
