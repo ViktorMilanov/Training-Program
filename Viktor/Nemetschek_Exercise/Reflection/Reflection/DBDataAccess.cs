@@ -16,7 +16,7 @@ namespace Reflection
             {
                 connection.Open();
 
-                SqlCommand cm = new SqlCommand("CREATE TABLE Logs (" +
+                SqlCommand cm = new("CREATE TABLE Logs (" +
                                                "Id INT IDENTITY(1,1) PRIMARY KEY, " +
                                                "Name VARCHAR(100) NOT NULL, " +
                                                "Version VARCHAR(50) NOT NULL, " +
