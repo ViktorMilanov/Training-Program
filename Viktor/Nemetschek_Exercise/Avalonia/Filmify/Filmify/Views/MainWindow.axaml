@@ -1,0 +1,86 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Filmify.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Filmify.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Filmify"
+		TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+		ExtendClientAreaToDecorationsHint="True">
+
+	<Window.Styles>
+		<Style Selector="ComboBoxItem, ComboBox, ListBoxItem">
+			<Setter Property="Width" Value="150"/>
+		</Style>
+	</Window.Styles>
+	
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+	<Grid RowDefinitions="Auto, Auto,*">
+		
+		<!-- Header-->
+		<Grid Grid.Row="0" Background="White" Height="50">
+			<StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+				<Label FontWeight="Black" Foreground="Black">FILMIFY</Label>
+			</StackPanel>
+		</Grid>
+		
+		<!-- -->
+		<Label Margin="0,20,0,20" Grid.Row="1" HorizontalAlignment="Center" >The Best Tool If You Don't Know What To Watch</Label>
+		<!--Film/Series Search-->
+		<Grid Grid.Row="2" ColumnDefinitions="*,*,*">
+			<!--FilmSearch-->
+			<Grid HorizontalAlignment="Center" Grid.Column="0" RowDefinitions="Auto,Auto,*,*">
+				<Label Margin="0,0,0,20" HorizontalAlignment="Center" Grid.Row ="0">Movie</Label>
+				<StackPanel HorizontalAlignment="Center"  Grid.Row="1" Margin="0,0,0,20">
+					<ComboBox SelectedIndex="0" SelectionChanged="MovieGenreSelectionChanged" x:Name="movieGenre">
+					</ComboBox>
+				</StackPanel>
+				<StackPanel HorizontalAlignment="Center" Grid.Row="2">
+					<ListBox x:Name="movieGenreList" IsEnabled="False">
+
+					</ListBox>
+				</StackPanel>
+				<Button Width="150" Grid.Row="3" Click="OnClickSearchMovieAsync">
+					<TextBlock HorizontalAlignment="Center">Search Movie!</TextBlock>
+				</Button>
+			</Grid>
+
+			<!--Suggest-->
+			<Grid x:Name="suggest" HorizontalAlignment="Center" Grid.Column="1" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
+				<Image Margin="0,10,0,20" HorizontalAlignment="Center"  Grid.Row="0" Name="suggestPoster" Width="400" Height="400" />
+				<TextBlock Margin="0,0,0,20" HorizontalAlignment="Center" FontWeight="Bold" TextWrapping="Wrap" Grid.Row="1" x:Name="title"></TextBlock>
+				<TextBlock Margin="0,0,0,20" HorizontalAlignment="Center" TextWrapping="Wrap" Grid.Row="2" x:Name="genres"></TextBlock>
+				<TextBlock Margin="0,0,0,20" HorizontalAlignment="Center" TextWrapping="Wrap" Grid.Row="3" x:Name="releaseDate"></TextBlock>
+				<TextBlock Margin="0,0,0,20" HorizontalAlignment="Center" TextWrapping="Wrap" Grid.Row="4" x:Name="rating"></TextBlock>
+				<TextBlock Margin="0,0,0,20" HorizontalAlignment="Center" TextWrapping="Wrap" Grid.Row="5" x:Name="description"></TextBlock>
+			</Grid>
+
+			<!--Series Search-->
+			<Grid HorizontalAlignment="Center" Grid.Column="2" RowDefinitions="Auto,Auto,*,*">
+				<Label Margin="0,0,0,20" HorizontalAlignment="Center" Grid.Row ="0">Series</Label>
+				<StackPanel HorizontalAlignment="Center" Grid.Row="1" Margin="0,0,0,20">
+					<ComboBox SelectedIndex="0"  SelectionChanged="SeriesGenreSelectionChanged" x:Name="seriesGenre">
+					</ComboBox>
+				</StackPanel>
+				<StackPanel HorizontalAlignment="Center" Grid.Row="2">
+					<ListBox x:Name="seriesGenreList" IsEnabled="False">
+
+					</ListBox>
+				</StackPanel>
+				<Button Width="150" Grid.Row="3" Click="OnClickSearchSeriesAsync">
+					<TextBlock HorizontalAlignment="Center">Search Series!</TextBlock>
+				</Button>		
+			</Grid>
+
+		</Grid>
+
+	</Grid>
+</Window>
