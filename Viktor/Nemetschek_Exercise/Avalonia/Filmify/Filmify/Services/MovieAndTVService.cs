@@ -6,10 +6,7 @@ using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Filmify.ViewModels;
 using Filmify.Errors;
-using System.IO;
-using Avalonia.Media.Imaging;
 
 namespace Filmify.Services
 {
