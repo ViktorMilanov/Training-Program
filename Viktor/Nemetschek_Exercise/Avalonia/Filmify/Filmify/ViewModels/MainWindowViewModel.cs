@@ -1,20 +1,13 @@
-﻿using Avalonia.Controls;
-using Avalonia.Media.Imaging;
+﻿using Avalonia.Media.Imaging;
 using Filmify.Errors;
 using Filmify.ExtentionMethods;
 using Filmify.Models;
 using Filmify.Services;
-using Microsoft.Internal.VisualStudio.PlatformUI;
-using Newtonsoft.Json;
 using ReactiveUI;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Net.Http;
-using System.Security.Policy;
 using System.Threading.Tasks;
-using static System.Net.WebRequestMethods;
 
 namespace Filmify.ViewModels
 {

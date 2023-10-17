@@ -8,13 +8,6 @@ using MsBox.Avalonia;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Avalonia.Media.Imaging;
-using System.IO;
-using System.Net.Http;
-using Microsoft.Internal.VisualStudio.PlatformUI;
-using Filmify.Services;
-using Avalonia.Media;
 
 namespace Filmify.Views
 {
