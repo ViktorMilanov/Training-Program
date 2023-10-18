@@ -22,11 +22,11 @@ jobs:
         uses: actions/setup-dotnet@v2
 
       - name: Build application
-        run: dotnet build --configuration Release -p:Filmify.sln
+        run: dotnet build --configuration Release
         working-directory: Viktor/Nemetschek_Exercise/Avalonia/Filmify
 
       - name: Publish Application
-        run: dotnet publish -c Release -o ./publish -p:Filmify.sln
+        run: dotnet publish -c Release -o ./publish
         working-directory: Viktor/Nemetschek_Exercise/Avalonia/Filmify
 
   release:
