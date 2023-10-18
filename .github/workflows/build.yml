@@ -1,0 +1,41 @@
+name: Build and Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0
+
+      - name: Build application
+        run: dotnet build --configuration Release
+
+      - name: Publish Application
+        run: dotnet publish -c Release -o ./publish
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ./publish/**/*
+        env:
+          MY_APP_TOKEN: ${{ secrets.MY_APP_TOKEN }}
+
+      - name: Update Release
+        run: echo "Released ${{ steps.create_release.outputs.upload_url }}"

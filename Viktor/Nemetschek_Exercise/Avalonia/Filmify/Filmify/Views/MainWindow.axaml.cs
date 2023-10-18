@@ -58,6 +58,7 @@ namespace Filmify.Views
                 }
                 MovieInfo suggestedMovie = await mainWindowViewModel.GetSuggestionAsync(wantedGenres, TypeOfSearchedGenre.movie) as MovieInfo;
                 suggestPoster.Source = await mainWindowViewModel.GetPosterAsync(suggestedMovie.poster_path) ?? await mainWindowViewModel.LoadDefaultImg();
+                beforeSuggestText.IsVisible = false;
                 title.Text = suggestedMovie.title;
                 description.Text = suggestedMovie.overview;
                 genres.Text = string.Join(", ", suggestedMovie.genre_names);
@@ -93,6 +94,7 @@ namespace Filmify.Views
                 }
                 SeriesInfo suggestedSeries = await mainWindowViewModel.GetSuggestionAsync(wantedGenres, TypeOfSearchedGenre.tv) as SeriesInfo;
                 suggestPoster.Source = await mainWindowViewModel.GetPosterAsync(suggestedSeries.poster_path) ?? await mainWindowViewModel.LoadDefaultImg();
+                beforeSuggestText.IsVisible = false;
                 title.Text = suggestedSeries.name;
                 description.Text = suggestedSeries.overview;
                 genres.Text = string.Join(", ", suggestedSeries.genre_names);
