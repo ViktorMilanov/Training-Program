@@ -23,11 +23,11 @@ jobs:
 
       - name: Build application
         run: dotnet build --configuration Release -p:Filmify.sln
-        working-directory: Avalonia/Filmify
+        working-directory: Avalonia\Filmify
 
       - name: Publish Application
         run: dotnet publish -c Release -o ./publish -p:Filmify.sln
-        working-directory: Avalonia/Filmify
+        working-directory: Avalonia\Filmify
 
   release:
     needs: build
