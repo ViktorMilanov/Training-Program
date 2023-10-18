@@ -22,15 +22,12 @@ jobs:
         uses: actions/setup-dotnet@v2
 
       - name: Build application
-        run: dotnet build --configuration Release
+        run: dotnet build --configuration Release -p:Filmify.sln
+        working-directory: Viktor/Nemetschek_Exercise/Avalonia/Filmify
 
       - name: Publish Application
-        run: dotnet publish -c Release -o ./publish
-
-      - name: List Repository Contents
-        run: |
-          ls -R
-        working-directory: Avalonia/Filmify
+        run: dotnet publish -c Release -o ./publish -p:Filmify.sln
+        working-directory: Viktor/Nemetschek_Exercise/Avalonia/Filmify
 
   release:
     needs: build
