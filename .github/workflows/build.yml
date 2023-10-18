@@ -22,12 +22,12 @@ jobs:
         uses: actions/setup-dotnet@v2
 
       - name: Build application
-        run: dotnet build --configuration Release -p:Filmify.sln
-        working-directory: 'C:\Users\Viktor Milanov\Documents\GitHub\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\Filmify\bin\Debug\net6.0'
+        run: dotnet build --configuration Release
+        working-directory: Avalonia/Filmify
 
       - name: Publish Application
-        run: dotnet publish -c Release -o ./publish -p:Filmify.sln
-        working-directory: 'C:\Users\Viktor Milanov\Documents\GitHub\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\Filmify\bin\Release\net6.0'
+        run: dotnet publish -c Release -o ./publish
+        working-directory: Avalonia/Filmify
 
   release:
     needs: build
