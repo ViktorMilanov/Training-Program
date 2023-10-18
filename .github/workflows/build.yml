@@ -12,10 +12,10 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
+      # - name: Set up Node.js
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: 16
 
       - name: Checkout code
         uses: actions/checkout@v2
@@ -27,9 +27,9 @@ jobs:
         run: dotnet build --configuration Release
         working-directory: Viktor/Nemetschek_Exercise/Avalonia/Filmify
 
-      - name: Publish Application
-        run: dotnet publish -c Release -o ./publish
-        working-directory: Viktor/Nemetschek_Exercise/Avalonia/Filmify
+      # - name: Publish Application
+      #   run: dotnet publish -c Release -o ./ Viktor/Nemetschek_Exercise/Avalonia/Filmify/Filmify/bin/Release
+      #   working-directory: Viktor/Nemetschek_Exercise/Avalonia/Filmify
 
   release:
     needs: build
@@ -42,8 +42,8 @@ jobs:
         with:
           files: Viktor/Nemetschek_Exercise/Avalonia/Filmify/Filmify/**/*
           tag_name: Filmify
-        env:
-          BUILD_TOKEN: "GITHUB_TOKEN"
+        # env:
+        #   BUILD_TOKEN: "GITHUB_TOKEN"
 
       - name: Update Release
         run: echo "Released ${{ steps.create_release.outputs.upload_url }}"
