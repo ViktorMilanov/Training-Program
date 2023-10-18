@@ -40,10 +40,10 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          files: ./bin/**/*
+          files: ./Filmify/bin/Release/**/*
           tag_name: Filmify
         env:
-          BUILD_TOKEN: GITHUB_TOKEN
+          BUILD_TOKEN: {GITHUB_TOKEN}
 
       - name: Update Release
         run: echo "Released ${{ steps.create_release.outputs.upload_url }}"
