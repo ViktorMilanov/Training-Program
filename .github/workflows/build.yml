@@ -26,11 +26,11 @@ jobs:
 
       - name: Publish Application
         run: dotnet publish -c Release -o ./publish
-  
+
       - name: List Repository Contents
-      run: |
-      ls -R
-    working-directory: Avalonia/Filmify
+        run: |
+          ls -R
+        working-directory: Avalonia/Filmify
 
   release:
     needs: build
