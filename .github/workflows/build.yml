@@ -43,7 +43,7 @@ jobs:
           files: ./publish/**/*
           tag_name: Filmify
         env:
-          MY_APP_TOKEN: ${{ secrets.MY_APP_TOKEN }}
+          BUILD_TOKEN: ${{ secrets.BUILD_TOKEN }}
 
       - name: Update Release
         run: echo "Released ${{ steps.create_release.outputs.upload_url }}"
