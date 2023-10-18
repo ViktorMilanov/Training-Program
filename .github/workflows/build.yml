@@ -27,6 +27,15 @@ jobs:
       - name: Publish Application
         run: dotnet publish -c Release -o ./publish
 
+        - name: Build application
+        run: dotnet build --configuration Release -p:Filmify.sln
+        working-directory: C:\Users\Viktor Milanov\Documents\GitHub\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify
+        # Replace 'MyApp' with the path to your project if it's in a subdirectory
+
+      - name: Publish Application
+        run: dotnet publish -c Release -o ./publish -p:Filmify.sln
+        working-directory:  C:\Users\Viktor Milanov\Documents\GitHub\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify
+
   release:
     needs: build
     runs-on: windows-latest
