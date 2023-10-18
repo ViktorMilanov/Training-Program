@@ -41,6 +41,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: ./publish/**/*
+          tag_name: Filmify
         env:
           MY_APP_TOKEN: ${{ secrets.MY_APP_TOKEN }}
 
