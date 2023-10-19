@@ -39,7 +39,8 @@ jobs:
       - name: Print Directory
         uses: Amadevus/pwsh-script@v2  
         id: my-script  
-         script: 'pwd' 
+        with:
+          script: 'pwd' 
       - run: echo "${{ steps.my-script.outputs.result }}"
       - name: Create Release
         id: create_release
