@@ -1,27 +1,30 @@
+name: Auto Release
+
 on:
   push:
     branches:
       - main
 
-env:
-  DOTNET_VERSION: '6.0.x'
-
 jobs:
-  build:
+  release:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v2
+
+      - name: Build application
+        run: dotnet build --configuration Release
+        working-directory: Viktor/Nemetschek_Exercise/Avalonia/Filmify
+
+      - name: Create or Update Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
         with:
-          dotnet-version: ${{ env.DOTNET_VERSION }}
-
-      - name: Build
-        run: dotnet build --configuration Release 
-        working-directory: Viktor/Nemetschek_Exercise/Avalonia/Filmify
-
-      - name: Test
-        run: dotnet test --configuration Release --no-build
-        working-directory: Viktor/Nemetschek_Exercise/Avalonia/Filmify
+          files: |
+            Viktor/Nemetschek_Exercise/Avalonia/Filmify/bin/Release/net6.0/**
+          tag_name: Filmify
+          title: Release Filmify
