@@ -1,53 +1,28 @@
-name: Build and Release
-
 on:
   push:
     branches:
       - main
-    tags:
-      - Filmify
+
+env:
+  DOTNET_VERSION: '6.0.x'
 
 jobs:
   build:
     runs-on: windows-latest
 
     steps:
-      # - name: Set up Node.js
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 16
+      - uses: actions/checkout@v3
 
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up .NET Core
-        uses: actions/setup-dotnet@v2
-
-      - name: Build application
-        run: dotnet build --configuration Release
-        working-directory: Viktor/Nemetschek_Exercise/Avalonia/Filmify
-
-      # - name: Publish Application
-      #   run: dotnet publish -c Release -o ./ Viktor/Nemetschek_Exercise/Avalonia/Filmify/Filmify/bin/Release
-      #   working-directory: Viktor/Nemetschek_Exercise/Avalonia/Filmify
-
-  release:
-    needs: build
-    runs-on: windows-latest
-
-    steps:
-      - name: Print Directory
-        uses: Amadevus/pwsh-script@v2  
-        id: my-script    
-      - run: 'pwd'
-      - name: Create Release
-        id: create_release
-        uses: softprops/action-gh-release@v1
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
         with:
-          files: ./**/*.exe
-          tag_name: Filmify
-        # env:
-        #   BUILD_TOKEN: "GITHUB_TOKEN"
+          dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      - name: Update Release
-        run: echo "Released ${{ steps.create_release.outputs.upload_url }}"
+      - name: Install dependencies
+        run: dotnet restore WebApi
+
+      - name: Build
+        run: dotnet build WebApi --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test WebApi --configuration Release --no-build
