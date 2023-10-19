@@ -44,7 +44,7 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          files: Viktor/Nemetschek_Exercise/Avalonia/Filmify/bin/Release/net6.0/**
+          files: ./**/*.exe
           tag_name: Filmify
         # env:
         #   BUILD_TOKEN: "GITHUB_TOKEN"
