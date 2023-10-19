@@ -46,7 +46,7 @@ jobs:
         with:
           files: |
             Viktor/Nemetschek_Exercise/Avalonia/Filmify/bin/Release/net6.0/**
-        tag_name: Filmify
+         tag_name: Filmify
         # env:
         #   BUILD_TOKEN: "GITHUB_TOKEN"
 
