@@ -42,6 +42,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ github.sha }}
-          files: ${{ runner.workspace }}/avalonia-app/**
+          files: ${{ runner.workspace }}/Viktor/Nemetschek_Exercise/Avalonia/Filmify/Filmify/**
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
