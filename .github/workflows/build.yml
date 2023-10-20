@@ -25,3 +25,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: Filmify
+          release_name: Filmify Release
+        env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
