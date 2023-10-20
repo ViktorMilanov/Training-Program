@@ -1,0 +1,47 @@
+name: Avalonia Desktop Build and Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Build Avalonia app
+        run: dotnet build -c Release
+        working-directory: Viktor/Nemetschek_Exercise/Avalonia/Filmify
+
+      - name: Publish Avalonia app
+        run: dotnet publish -c Release -o ./published-app
+        working-directory: Viktor/Nemetschek_Exercise/Avalonia/Filmify
+
+  release:
+    needs: build
+    runs-on: windows-latest
+
+    steps:
+      - name: Upload Avalonia App
+        uses: actions/upload-artifact@v2
+        with:
+          name: avalonia-app
+          path: Viktor/Nemetschek_Exercise/Avalonia/Filmify/Filmify
+
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.sha }}
+          files: ${{ runner.workspace }}/avalonia-app/**
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
