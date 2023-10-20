@@ -44,6 +44,5 @@ jobs:
           tag_name: ${{ github.sha }}
           files: ${{ runner.workspace }}/Viktor/Nemetschek_Exercise/Avalonia/Filmify/Filmify/**
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          permissions: contents: write
+          GITHUB_TOKEN: ${{ secrets.BUILD_TOKEN }}
         
