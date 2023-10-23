@@ -34,7 +34,8 @@ jobs:
       - uses: Amadevus/pwsh-script@v2
         id: my-script
       - run: pwd
-      - run: ls -l
+      - run: ls -l .
+      - run: dir
 
       - name: Upload Avalonia App
         uses: actions/upload-artifact@v2
