@@ -30,7 +30,7 @@ jobs:
         run: echo "PUBLISHED_APP_PATH=$(pwd)/published-app" >> $GITHUB_ENV
 
       - name: Display Environment Variable
-        run: echo $PUBLISHED_APP_PATH
+        run: echo "$PUBLISHED_APP_PATH"
 
 
   release:
