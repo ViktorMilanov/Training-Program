@@ -35,7 +35,8 @@ jobs:
         id: my-script
       - run: pwd
       - run: ls -l .
-      - run: dir
+      - run: |
+          Get-ChildItem
 
       - name: Upload Avalonia App
         uses: actions/upload-artifact@v2
