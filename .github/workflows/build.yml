@@ -39,10 +39,12 @@ jobs:
           Get-ChildItem
 
       - name: Upload Avalonia App
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
+        - run: pwd
+        - run: Get-ChildItem
         with:
           name: avalonia-app
-          path: Viktor/Nemetschek_Exercise/Avalonia/Filmify/Filmify
+          path: ./published-app
 
       - name: Create Release
         id: create_release
