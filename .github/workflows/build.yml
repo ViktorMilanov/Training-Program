@@ -40,8 +40,8 @@ jobs:
 
       - name: Upload Avalonia App
         uses: actions/upload-artifact@v3
-        - run: pwd
-        - run: Get-ChildItem
+      - run: pwd
+      - run: Get-ChildItem
         with:
           name: avalonia-app
           path: ./published-app
