@@ -31,6 +31,11 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - uses: Amadevus/pwsh-script@v2
+        id: my-script
+      - run: echo pwd
+      - run: echo ls -l
+
       - name: Upload Avalonia App
         uses: actions/upload-artifact@v2
         with:
@@ -41,8 +46,6 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ github.sha }}
+          tag_name: Filmify
           files: ${{ runner.workspace }}/Viktor/Nemetschek_Exercise/Avalonia/Filmify/Filmify/**
-        env:
-          GITHUB_TOKEN: ${{ secrets.BUILD_TOKEN }}
         
