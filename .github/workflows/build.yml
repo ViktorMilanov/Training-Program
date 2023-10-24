@@ -32,7 +32,7 @@ jobs:
         run: echo "PUBLISHED_APP_PATH=$(pwd)/published-app" >> $GITHUB_ENV
 
       - name: Display Environment Variable
-        run: echo "$PUBLISHED_APP_PATH"
+        run: echo "PUBLISHED_APP_PATH=$PUBLISHED_APP_PATH"
 
 
   release:
@@ -55,6 +55,9 @@ jobs:
       #    pwd
       #    ls -l Viktor/Nemetschek_Exercise/Avalonia/Filmify/published-app
 
+      - name: Display Environment Variable
+        run: echo "PUBLISHED_APP_PATH=$PUBLISHED_APP_PATH"
+      
       - name: Upload Avalonia App
         uses: actions/upload-artifact@v3
         with:
