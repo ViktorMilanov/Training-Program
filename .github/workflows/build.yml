@@ -44,19 +44,20 @@ jobs:
       - run: |
           Get-ChildItem
 
-      - name: List Published App Directory
-        run: |
-          Get-ChildItem "$(pwd)/Viktor/Nemetschek_Exercise/Avalonia/Filmify"
-        working-directory: Viktor/Nemetschek_Exercise/Avalonia/Filmify
-      - name: Debug Published App
-        run: |
-          pwd
-          ls -l Viktor/Nemetschek_Exercise/Avalonia/Filmify/published-app
+      #- name: List Published App Directory
+      #  run: |
+      #    Get-ChildItem "$(pwd)/Viktor/Nemetschek_Exercise/Avalonia/Filmify"
+      #  working-directory: Viktor/Nemetschek_Exercise/Avalonia/Filmify
+      #- name: Debug Published App
+      #  run: |
+      #    pwd
+      #    ls -l Viktor/Nemetschek_Exercise/Avalonia/Filmify/published-app
       - name: Upload Avalonia App
         uses: actions/upload-artifact@v3
         with:
           name: avalonia-app
-          path: Viktor/Nemetschek_Exercise/Avalonia/Filmify/published-app/**/*
+          path: published-app/**/*
+          working-directory: Viktor/Nemetschek_Exercise/Avalonia/Filmify
 
       # - name: Create Release
       #   id: create_release
