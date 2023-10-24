@@ -9,6 +9,10 @@ jobs:
   build:
     runs-on: windows-latest
 
+    defaults:
+      run:
+        working-directory: Viktor/Nemetschek_Exercise/Avalonia/Filmify
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -20,11 +24,9 @@ jobs:
 
       - name: Build Avalonia app
         run: dotnet build -c Release
-        working-directory: Viktor/Nemetschek_Exercise/Avalonia/Filmify
 
       - name: Publish Avalonia app
         run: dotnet publish -c Release -o ./published-app
-        working-directory: Viktor/Nemetschek_Exercise/Avalonia/Filmify
 
       - name: Set Environment Variable
         run: echo "PUBLISHED_APP_PATH=$(pwd)/published-app" >> $GITHUB_ENV
@@ -52,14 +54,12 @@ jobs:
       #  run: |
       #    pwd
       #    ls -l Viktor/Nemetschek_Exercise/Avalonia/Filmify/published-app
-      - name: Change Directory
-        run: cd Viktor/Nemetschek_Exercise/Avalonia/Filmify
 
       - name: Upload Avalonia App
         uses: actions/upload-artifact@v3
         with:
           name: avalonia-app
-          path: published-app/**/*
+          path: ${{ env.PUBLISHED_APP_PATH }}/**
 
       # - name: Create Release
       #   id: create_release
