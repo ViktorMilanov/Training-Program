@@ -28,6 +28,9 @@ jobs:
       - name: Publish Avalonia app
         run: dotnet publish -c Release -o ./published-app
 
+      - name: List Published App Directory
+        run: ls -l ./published-app
+
       - name: Set Environment Variable
         run: echo "PUBLISHED_APP_PATH=$(pwd)/published-app" >> $GITHUB_ENV
 
