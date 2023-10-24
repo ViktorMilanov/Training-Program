@@ -46,7 +46,7 @@ jobs:
 
       - name: List Published App Directory
         run: |
-          Get-ChildItem "$(pwd)\Viktor\Nemetschek_Exercise\Avalonia\Filmify"
+          Get-ChildItem "$(pwd)"
       - name: Debug Published App
         run: |
           pwd
