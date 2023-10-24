@@ -41,7 +41,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: avalonia-app
-          path: $(pwd)/published-app/**/*
+          path: ./published-app/**/*
 
   release:
     needs: build
