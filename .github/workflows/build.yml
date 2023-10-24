@@ -56,7 +56,7 @@ jobs:
       #    ls -l Viktor/Nemetschek_Exercise/Avalonia/Filmify/published-app
 
       - name: Display Environment Variable
-        run: echo "PUBLISHED_APP_PATH=$PUBLISHED_APP_PATH"
+        run: echo "PUBLISHED_APP_PATH=${{ env.PUBLISHED_APP_PATH }}"
       
       - name: Upload Avalonia App
         uses: actions/upload-artifact@v3
