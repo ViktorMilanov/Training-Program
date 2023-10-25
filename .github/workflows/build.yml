@@ -54,7 +54,6 @@ jobs:
       - run: ls -l .
       - run: |
           Get-ChildItem
-
       #- name: List Published App Directory
       #  run: |
       #    Get-ChildItem "$(pwd)/Viktor/Nemetschek_Exercise/Avalonia/Filmify"
@@ -71,7 +70,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: avalonia-app
-          path: $(pwd)\Viktor\Nemetschek_Exercise\Avalonia\Filmify\published-app\**\*
+          path: D:\a\Training-Program\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\published-app
 
       # - name: Create Release
       #   id: create_release
