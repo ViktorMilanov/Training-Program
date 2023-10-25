@@ -51,7 +51,7 @@ jobs:
     steps:
       - uses: Amadevus/pwsh-script@v2
       - run: pwd
-      - run: ls -l D:\a\Training-Program\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\published-app
+      - run: ls -l D:\a\Training-Program\Training-Program
       - run: |
           Get-ChildItem
       #- name: List Published App Directory
@@ -70,7 +70,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: avalonia-app
-          path: D:\a\Training-Program\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\published-app
+          path: D:\a\Training-Program\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\published-app\*.dll
 
       # - name: Create Release
       #   id: create_release
