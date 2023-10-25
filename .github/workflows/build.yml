@@ -24,47 +24,12 @@ jobs:
 
       - name: Build .NET project
         run: dotnet build --configuration Release
+
       - name: Publish .NET project
         run: dotnet publish --configuration Release --output build_output
-      - run: ls -l D:\a\Training-Program\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\build_output
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v2
         with:
           name: release-dlls
           path: D:\a\Training-Program\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\build_output\*.dll
-
-
-  release:
-    needs: build
-    runs-on: windows-latest
-
-    steps:
-      - uses: Amadevus/pwsh-script@v2
-      - run: pwd
-      - run: |
-          Get-ChildItem
-      #- name: List Published App Directory
-      #  run: |
-      #    Get-ChildItem "$(pwd)/Viktor/Nemetschek_Exercise/Avalonia/Filmify"
-      #  working-directory: Viktor/Nemetschek_Exercise/Avalonia/Filmify
-      #- name: Debug Published App
-      #  run: |
-      #    pwd
-      #    ls -l Viktor/Nemetschek_Exercise/Avalonia/Filmify/published-app
-      
-      - name: Display Environment Variable
-        run: echo "PUBLISHED_APP_PATH=$(pwd)\Viktor\Nemetschek_Exercise\Avalonia\Filmify\published-app"
-
-      - name: Upload Avalonia App
-        uses: actions/upload-artifact@v3
-        with:
-          name: avalonia-app
-          path: D:\a\Training-Program\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\published-app\*.dll
-
-      # - name: Create Release
-      #   id: create_release
-      #   uses: softprops/action-gh-release@v1
-      #   with:
-      #     tag_name: Filmify
-      #     files: ./published-app/**
-        
