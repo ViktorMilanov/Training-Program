@@ -28,9 +28,10 @@ jobs:
       - name: Publish .NET project
         run: dotnet publish --configuration Release --output build_output
       
-      - name: Upload build artifacts
-        uses: softprops/action-gh-release@v1
-        with:
-          name: release-dlls
-          files: ./build_output/*.dll
-          tag_name: Filmify
+      - name: Create Release
+        id: create_release
+        run: |
+          tag_name="Filmify"
+          asset_path="build_output"
+          body="Release notes here"
+          gh release create "$tag_name" "$asset_path/*" --notes "$body"
