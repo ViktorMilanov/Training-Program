@@ -51,7 +51,7 @@ jobs:
     steps:
       - uses: Amadevus/pwsh-script@v2
       - run: pwd
-      - run: ls -l .
+      - run: ls -l D:\a\Training-Program\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\published-app
       - run: |
           Get-ChildItem
       #- name: List Published App Directory
