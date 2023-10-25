@@ -26,22 +26,18 @@ jobs:
         run: dotnet build -c Release
 
       - name: Publish Avalonia app
-        run: dotnet publish -c Release -o ./published-app
+        run: dotnet publish -c Release -o .\published-app
 
       - name: List Published App Directory
-        run: ls -l ./published-app
+        run: ls -l .\published-app
 
       - name: Set Environment Variable
-        run: echo "PUBLISHED_APP_PATH=$(pwd)/published-app" >> $GITHUB_ENV
+        run: echo "PUBLISHED_APP_PATH=$(pwd)\published-app" >> $GITHUB_ENV
 
       - name: Display Environment Variable
-        run: echo "PUBLISHED_APP_PATH=$(pwd)/published-app"
+        run: echo "PUBLISHED_APP_PATH=$(pwd)\published-app"
 
-      - name: Upload Avalonia App
-        uses: actions/upload-artifact@v3
-        with:
-          name: avalonia-app
-          path: ./published-app/**/*
+
 
   release:
     needs: build
