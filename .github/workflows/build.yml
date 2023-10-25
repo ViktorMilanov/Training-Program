@@ -11,7 +11,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: Viktor/Nemetschek_Exercise/Avalonia/Filmify
+        working-directory: Viktor\Nemetschek_Exercise\Avalonia\Filmify
 
     steps:
       - name: Checkout code
@@ -28,9 +28,13 @@ jobs:
       - name: Publish .NET project
         run: dotnet publish --configuration Release --output build_output
 
+      - name: Set Release Tag
+        id: set_tag
+        run: echo ::set-output name=tag::Filmify
+      
       - name: Upload build artifacts
         uses: softprops/action-gh-release@v1
         with:
           name: release-dlls
-          files: D:\a\Training-Program\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\build_output\*.dll
-          tag_name: Filmify
+          files: .\build_output\*.dll
+          tag_name: ${{ steps.set_tag.outputs.tag }}
