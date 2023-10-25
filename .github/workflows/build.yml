@@ -63,7 +63,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: avalonia-app
-          path: ${{ env.PUBLISHED_APP_PATH }}/**/*
+          path: $(pwd)\Viktor\Nemetschek_Exercise\Avalonia\Filmify\published-app\**\*
 
       # - name: Create Release
       #   id: create_release
