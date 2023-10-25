@@ -32,4 +32,5 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           name: release-dlls
-          path: D:\a\Training-Program\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\build_output\*.dll
+          files: D:\a\Training-Program\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\build_output\*.dll
+          tag_name: Filmify
