@@ -37,6 +37,11 @@ jobs:
       - name: Display Environment Variable
         run: echo "PUBLISHED_APP_PATH=$(pwd)\published-app"
 
+      - name: Upload Avalonia App
+        uses: actions/upload-artifact@v3
+        with:
+          name: avalonia-app
+          path: $(pwd)\published-app\**\*
 
 
   release:
