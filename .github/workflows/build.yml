@@ -27,14 +27,10 @@ jobs:
 
       - name: Publish .NET project
         run: dotnet publish --configuration Release --output build_output
-
-      - name: Set Release Tag
-        id: set_tag
-        run: echo ::set-output name=tag::Filmify
       
       - name: Upload build artifacts
         uses: softprops/action-gh-release@v1
         with:
           name: release-dlls
           files: .\build_output\*.dll
-          tag_name: ${{ steps.set_tag.outputs.tag }}
+          tag_name: Filmify
