@@ -29,8 +29,16 @@ jobs:
         run: dotnet publish --configuration Release --output build_output
       
       - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: release-dlls
+          path: D:\a\Training-Program\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\build_output\*.dll
+
+      - run: ls -l D:\a\Training-Program\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\build_output
+      - run: ls -l D:\a\Training-Program\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\build_output\rellease-dlls
+      - name: Release build artifacts
         uses: softprops/action-gh-release@v1
         with:
           name: release-dlls
-          files: "build_output"
+          files: "rellease-dlls.zip"
           tag_name: Filmify
