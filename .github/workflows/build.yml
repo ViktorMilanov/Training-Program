@@ -32,5 +32,5 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           name: release-dlls
-          files: build_output*
+          files: "build_output"
           tag_name: Filmify
