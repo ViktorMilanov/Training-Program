@@ -9,7 +9,7 @@
         Icon="/Assets/avalonia-logo.ico"
         Title="Filmify"
 		TransparencyLevelHint="AcrylicBlur"
-        Background="#000000"
+        Background="#303234"
 		ExtendClientAreaToDecorationsHint="True"
 		WindowState="FullScreen">
 

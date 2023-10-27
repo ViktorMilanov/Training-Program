@@ -36,14 +36,14 @@ jobs:
 
       - name: Create ZIP Folder
         run: |
-          Compress-Archive -Path "build_output/*" -DestinationPath "build_output/release.zip"
+          Compress-Archive -Path "build_output" -DestinationPath "build_output/release.zip"
         shell: pwsh
 
       - run: pwd
       - run: ls -l D:\a\Training-Program\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\build_output
 
       - name: Release build artifacts pls work
-        run: gh release create v1.2.3 ./build_output/release.zip
+        run: gh release create v1.0 ./build_output/release.zip
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
