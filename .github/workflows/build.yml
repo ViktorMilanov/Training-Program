@@ -45,5 +45,5 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           name: release-dlls
-          files: 'build_output/*.dll'
+          files: 'build_output/release.zip'
           tag_name: Filmify
