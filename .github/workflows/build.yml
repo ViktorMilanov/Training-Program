@@ -41,6 +41,7 @@ jobs:
 
       - run: pwd
       - run: ls -l D:\a\Training-Program\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\build_output
+      - run: ls -l D:\a\Training-Program\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\build_output\release.zip
       - name: Release build artifacts
         uses: softprops/action-gh-release@v1
         with:
