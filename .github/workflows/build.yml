@@ -39,7 +39,7 @@ jobs:
           Compress-Archive -Path "build_output/*.dll" -DestinationPath "build_output/release.zip"
         shell: pwsh
 
-
+      - run: pwd
       - run: ls -l D:\a\Training-Program\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\build_output
       - name: Release build artifacts
         uses: softprops/action-gh-release@v1
