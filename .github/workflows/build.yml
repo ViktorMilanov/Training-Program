@@ -44,6 +44,8 @@ jobs:
 
       - name: Release build artifacts pls work
         run: gh release create v1.2.3 ./build_output/release.zip
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
       
       - name: Release build artifacts
