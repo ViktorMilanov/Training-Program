@@ -36,7 +36,7 @@ jobs:
 
       - name: Create ZIP Folder
         run: |
-          Compress-Archive -Path "build_output/*.dll" -DestinationPath "build_output/release.zip"
+          Compress-Archive -Path "build_output/*" -DestinationPath "build_output/release.zip"
         shell: pwsh
 
       - run: pwd
@@ -49,5 +49,5 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           name: release-dlls
-          files: build_output/release.zip
+          files: build_output/*
           tag_name: Filmify
