@@ -45,7 +45,7 @@ jobs:
         run: |
           unzip -l build_output/release.zip
       - name: Release build artifacts pls work
-        run: $ gh release create v1.2.3 ./build_output/release.zip
+        run: gh release create v1.2.3 ./build_output/release.zip
       
       
       - name: Release build artifacts
