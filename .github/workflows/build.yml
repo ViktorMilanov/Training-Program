@@ -27,30 +27,13 @@ jobs:
 
       - name: Publish .NET project
         run: dotnet publish --configuration Release --output build_output
-      
-    #  - name: Upload build artifacts
-     #   uses: actions/upload-artifact@v2
-      #  with:
-       #   name: release-dlls
-        #  path: D:\a\Training-Program\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\build_output\*.dll
 
       - name: Create ZIP Folder
         run: |
           Compress-Archive -Path "build_output" -DestinationPath "build_output/release.zip"
         shell: pwsh
 
-      - run: pwd
-      - run: ls -l D:\a\Training-Program\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\build_output
-
-      - name: Release build artifacts pls work
+      - name: Release build artifacts
         run: gh release create v1.0 ./build_output/release.zip
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-      
-      - name: Release build artifacts
-        uses: softprops/action-gh-release@v1
-        with:
-          name: release-dlls
-          files: build_output/*
-          tag_name: Filmify
