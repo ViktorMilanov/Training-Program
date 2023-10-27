@@ -35,10 +35,9 @@ jobs:
           path: D:\a\Training-Program\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\build_output\*.dll
 
       - run: ls -l D:\a\Training-Program\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\build_output
-      - run: ls -l D:\a\Training-Program\Training-Program\Viktor\Nemetschek_Exercise\Avalonia\Filmify\build_output\rellease-dlls
       - name: Release build artifacts
         uses: softprops/action-gh-release@v1
         with:
           name: release-dlls
-          files: "rellease-dlls.zip"
+          files: 'build_output/*.dll'
           tag_name: Filmify
